@@ -6,7 +6,7 @@ A simple REST API capable of CRUD operations on a "person" resource that interfa
 
 ## UML and E-R Diagram
 
-![ULM and E-R Diagram](./UML.png)
+![ULM and E-R Diagram](./public/UML.png)
 
 ## Available Endpoints
 
