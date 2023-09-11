@@ -275,9 +275,7 @@ DELETE /api/1234567890
 ## Known Limitations and Assumptions
 
 - The API assumes that the `userId` parameter is a valid MongoDB ObjectId.
-- Error messages are generic and may not provide specific details for debugging.
 - No authentication or authorization mechanisms are implemented (public access).
-- Validation for request data is minimal; it checks for the presence and type of the "name" field.
 
 ## Setup and Deployment
 
