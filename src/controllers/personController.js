@@ -1,7 +1,7 @@
 import Person from "../models/personModel.js";
 
 //@desc Fetch a Person resource
-//@route GET /api/userId
+//@route GET /api/:userId
 //@access public
 export const getPerson = async (req, res, next) => {
   const { userId } = req.params;
@@ -39,8 +39,6 @@ export const createPerson = async (req, res, next) => {
     res.status(400);
     next(err);
   } else {
-    // Sanitize data
-
     const person = new Person({ name });
     try {
       person.save();
@@ -54,12 +52,12 @@ export const createPerson = async (req, res, next) => {
 };
 
 //@desc Update a Person resource
-//@route PUT /api/userId
+//@route PUT /api/:userId
 //@access public
 export const updatePerson = async (req, res, next) => {
   const { name } = req.body;
   if (!name || typeof name !== "string") {
-    const err = new Error("Invalid or missing 'name' field");
+    const err = new Error("Invalid input or missing 'name' field");
     res.status(400);
     next(err);
   }
@@ -94,7 +92,7 @@ export const updatePerson = async (req, res, next) => {
 };
 
 //@desc Delete a Person resource
-//@route DELETE /api/userId
+//@route DELETE /api/:userId
 //@access public
 export const deletePerson = async (req, res, next) => {
   const { userId } = req.params;
