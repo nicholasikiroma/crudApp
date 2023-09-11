@@ -36,7 +36,7 @@ No request body is required. The `userId` parameter should be included in the UR
   }
   ```
 
-- `400 Bad Request` if `userId` is not in a valid MONGODB ObjectId:
+- `400 Bad Request` if `userId` is not in a valid MongoDB ObjectId:
 
   ```json
   {
@@ -168,7 +168,7 @@ No request body is required. The `userId` parameter should be included in the UR
   }
   ```
 
-- `400 Bad Request` if `userId` is not in a valid format:
+- `400 Bad Request` if `userId` is not in a valid MongoDB ObjectId:
 
   ```json
   {
