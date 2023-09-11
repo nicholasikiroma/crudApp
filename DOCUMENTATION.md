@@ -36,7 +36,7 @@ No request body is required. The `userId` parameter should be included in the UR
   }
   ```
 
-- `400 Bad Request` if `userId` is not in a valid format:
+- `400 Bad Request` if `userId` is not in a valid MONGODB ObjectId:
 
   ```json
   {
@@ -126,7 +126,7 @@ No request body is required. The `userId` parameter should be included in the UR
   }
   ```
 
-- `400 Bad Request` if the request body is missing or not valid, or if `userId` is not in a valid format:
+- `400 Bad Request` if the request body is missing or not valid, or if `userId` is not in a valid MongoDB ObjectId:
 
   ```json
   {
@@ -277,7 +277,7 @@ DELETE /api/1234567890
 - The API assumes that the `userId` parameter is a valid MongoDB ObjectId.
 - No authentication or authorization mechanisms are implemented (public access).
 
-## Setup and Deployment
+## Setup
 
 To set up and deploy the API locally or on a server, follow these steps:
 
@@ -287,6 +287,6 @@ To set up and deploy the API locally or on a server, follow these steps:
 4. Start the API server using the appropriate command (e.g., `npm run start`).
 5. The API will be available at the specified base URL (e.g., `http://localhost:PORT`).
 
-Ensure that you have Node.js and MongoDB installed on your system before proceeding with the setup.
+<mark>For more detailed setup instructions see</mark>:  [README.md](./README.md)
 
-For production deployment, consider using a production-ready server and adding security measures like authentication and authorization.
+Ensure that you have Node.js and MongoDB installed on your system before proceeding with the setup.
