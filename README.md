@@ -6,7 +6,7 @@ A simple REST API capable of CRUD operations on a "person" resource that interfa
 
 ## UML and E-R Diagram
 
-![ULM and E-R Diagram](/UML.png)
+![ULM and E-R Diagram](./UML.png)
 
 ## Available Endpoints
 
@@ -19,7 +19,7 @@ A simple REST API capable of CRUD operations on a "person" resource that interfa
 
 ## API Documentation
 
-- [Documentation](/DOCUMENTATION.md)
+- [Documentation](./DOCUMENTATION.md)
 
 ## Usage
 
@@ -40,7 +40,6 @@ Create a `.env` with the values:
 
 ```bash
 DATABASE_URL=<replace-with-mongodb-connection-string>
-PORT=<replace-with-port>
 ```
 
 Start up server:
