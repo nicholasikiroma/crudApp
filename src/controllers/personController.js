@@ -3,52 +3,64 @@ import Person from "../models/personModel.js";
 //@desc Fetch a Person resource
 //@route GET /api/userId
 //@access public
-export const getPerson = async (req, res) => {
+export const getPerson = async (req, res, next) => {
   const { userId } = req.params;
   try {
     const result = await Person.findById(userId);
 
     if (!result) {
-      res.status(404).json({ message: "User not found." });
+      const err = new Error("User not found");
+      res.status(404);
+      next(err);
     } else {
       res.json({ data: result });
     }
   } catch (err) {
     // Check if the error is a CastError (invalid ID)
     if (err.name === "CastError") {
-      return res.status(400).json({ message: "Invalid ID format" });
+      res.status(400);
+      err.message = "Use a valid ID format";
+      next(err);
+    } else {
+      res.status(500);
+      err.message = "Something went wrong...";
+      next(err);
     }
-    res.status(500).json({ message: err.message });
   }
 };
 
 //@desc Create a Person resource
 //@route POST /api
 //@access public
-export const createPerson = async (req, res) => {
+export const createPerson = async (req, res, next) => {
   const { name } = req.body;
   if (!name || typeof name !== "string") {
-    res.status(400).json({ error: "Invalid or missing 'name' field" });
-  }
+    const err = new Error("Invalid or missing 'name' field");
+    res.status(400);
+    next(err);
+  } else {
+    // Sanitize data
 
-  // Sanitize data
-
-  const person = new Person({ name });
-  try {
-    person.save();
-    res.status(201).json({ data: person });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    const person = new Person({ name });
+    try {
+      person.save();
+      res.status(201).json({ data: person });
+    } catch (err) {
+      res.status(500);
+      next(err);
+    }
   }
 };
 
 //@desc Update a Person resource
 //@route PUT /api/userId
 //@access public
-export const updatePerson = async (req, res) => {
+export const updatePerson = async (req, res, next) => {
   const { name } = req.body;
   if (!name || typeof name !== "string") {
-    res.status(400).json({ error: "Invalid or missing 'name' field" });
+    const err = new Error("Invalid or missing 'name' field");
+    res.status(400);
+    next(err);
   }
 
   try {
@@ -60,36 +72,49 @@ export const updatePerson = async (req, res) => {
       }
     );
     if (!updatedUser) {
-      res.status(404).json({ error: "User not found." });
+      const err = new Error("User not found");
+      res.status(404);
+      next(err);
     } else {
       res.status(200).json({ data: updatedUser });
     }
   } catch (err) {
+    // Check if the error is a CastError (invalid ID)
     if (err.name === "CastError") {
-      return res.status(400).json({ message: "Invalid ID format" });
+      res.status(400);
+      err.message = "Use a valid ID format";
+      next(err);
+    } else {
+      res.status(500);
+      next(err);
     }
-    return res.status(500).json({ error: err.message });
   }
 };
 
 //@desc Delete a Person resource
 //@route DELETE /api/userId
 //@access public
-export const deletePerson = async (req, res) => {
+export const deletePerson = async (req, res, next) => {
   const { userId } = req.params;
   try {
     const result = await Person.findByIdAndDelete(userId);
 
     if (!result) {
-      res.status(404).json({ message: "User not found." });
+      const err = new Error("User not found");
+      res.status(404);
+      next(err);
     } else {
       res.json({ data: result });
     }
   } catch (err) {
     // Check if the error is a CastError (invalid ID)
     if (err.name === "CastError") {
-      return res.status(400).json({ message: "Invalid ID format" });
+      res.status(400);
+      err.message = "Use a valid ID format";
+      next(err);
+    } else {
+      res.status(500);
+      next(err);
     }
-    res.status(500).json({ message: err.message });
   }
 };
