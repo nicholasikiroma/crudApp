@@ -23,7 +23,7 @@ export const getPerson = async (req, res, next) => {
       next(err);
     } else {
       res.status(500);
-      err.message = "Something went wrong...";
+      err.message = "Server failed to fetch user. Try again...";
       next(err);
     }
   }
@@ -47,6 +47,7 @@ export const createPerson = async (req, res, next) => {
       res.status(201).json({ data: person });
     } catch (err) {
       res.status(500);
+      err.message = "Failed to create new user.";
       next(err);
     }
   }
@@ -86,6 +87,7 @@ export const updatePerson = async (req, res, next) => {
       next(err);
     } else {
       res.status(500);
+      err.message = "Failed to update user.";
       next(err);
     }
   }
@@ -114,6 +116,7 @@ export const deletePerson = async (req, res, next) => {
       next(err);
     } else {
       res.status(500);
+      err.message = "Failed to delete user";
       next(err);
     }
   }
