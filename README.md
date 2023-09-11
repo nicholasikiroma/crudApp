@@ -4,6 +4,10 @@
 
 A simple REST API capable of CRUD operations on a "person" resource that interfaces with a MongoDD database.
 
+## UML and E-R Diagram
+
+![ULM and E-R Diagram](/UML.png)
+
 ## Available Endpoints
 
 | Route | Description |
@@ -12,6 +16,10 @@ A simple REST API capable of CRUD operations on a "person" resource that interfa
 | `POST` /api | Create a new user |
 | `PUT` /api/userId | Update a user |
 | `DELETE` /api/userId | Delete a user |
+
+## API Documentation
+
+- [Documentation](/DOCUMENTATION.md)
 
 ## Usage
 
@@ -40,3 +48,5 @@ Start up server:
 ```bash
 npm run start
 ```
+
+The API will be available at <http://localhost:PORT/api>
