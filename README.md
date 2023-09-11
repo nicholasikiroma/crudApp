@@ -8,10 +8,10 @@ A simple REST API capable of CRUD operations on a "person" resource that interfa
 
 | Route | Description |
 | --- | ----------- |
-| `GET` /api/userId | Fetch a user from the database |
+| `GET` /api/:userId | Fetch a user from the database |
 | `POST` /api | Create a new user |
-| `PUT` /api/userId | Update a user |
-| `DELETE` /api/userId | Delete a user |
+| `PUT` /api/:userId | Update a user |
+| `DELETE` /api/:userId | Delete a user |
 
 ## Usage
 
