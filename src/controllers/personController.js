@@ -1,7 +1,7 @@
 import Person from "../models/personModel.js";
 
 //@desc Fetch a Person resource
-//@route GET /api
+//@route GET /api/userId
 //@access public
 export const getPerson = async (req, res) => {
   const { userId } = req.params;
@@ -43,7 +43,7 @@ export const createPerson = async (req, res) => {
 };
 
 //@desc Update a Person resource
-//@route PUT /api
+//@route PUT /api/userId
 //@access public
 export const updatePerson = async (req, res) => {
   const { name } = req.body;
@@ -73,7 +73,7 @@ export const updatePerson = async (req, res) => {
 };
 
 //@desc Delete a Person resource
-//@route DELETE /api
+//@route DELETE /api/userId
 //@access public
 export const deletePerson = async (req, res) => {
   const { userId } = req.params;
