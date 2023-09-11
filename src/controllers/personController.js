@@ -41,7 +41,7 @@ export const createPerson = async (req, res, next) => {
   } else {
     const person = new Person({ name });
     try {
-      person.save();
+      await person.save();
       res.status(201).json({ data: person });
     } catch (err) {
       res.status(500);
