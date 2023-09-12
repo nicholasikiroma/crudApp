@@ -4,10 +4,6 @@
 
 A simple REST API capable of CRUD operations on a "person" resource that interfaces with a MongoDD database.
 
-## UML and E-R Diagram
-
-![ULM and E-R Diagram](./public/UML.png)
-
 ## Available Endpoints
 
 | Route | Description |
