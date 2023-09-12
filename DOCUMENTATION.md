@@ -272,10 +272,23 @@ DELETE /api/1234567890
 }
 ```
 
+## Testing
+
+API endpoints can be tested easily using [Postman's CLI tool](https://learning.postman.com/docs/postman-cli/postman-cli-installation/) with the command below
+
+```bash
+postman login --with-api-key <replace-with-postman-api-key>
+postman collection run 29666150-9190139c-e5db-45b3-88ea-a924541b801d
+```
+
+Postman CLI output:
+![postman test output](./public/postman-test.png)
+
 ## Known Limitations and Assumptions
 
 - The API assumes that the `userId` parameter is a valid MongoDB ObjectId.
 - No authentication or authorization mechanisms are implemented (public access).
+- Initial request to server may delay a bit because Render server instances are spinned down after some minutes of inactivity.
 
 ## Setup
 
