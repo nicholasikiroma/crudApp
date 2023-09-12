@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple REST API capable of CRUD operations on a "person" resource that interfaces with a MongoDD database.
+A simple REST API capable of CRUD operations on a "person" resource that interfaces with a MongoDB database.
 
 ## Available Endpoints
 
